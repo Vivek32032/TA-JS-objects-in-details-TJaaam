@@ -4,7 +4,7 @@ let questionOneTitle = "What is the Capital of India";
 let questionOneOption = ["Kolkata", "Mumbai", "Hyderabad", "New Delhi"];
 let questionOneAnswer = 3;
 function isAnswerCorrect(answer) {
-    return answer === questionOneAnswer ? true : false;
+    return answer === questionOneAnswer
 }
 function getCorrectAnswer() {
     return questionOneOption[questionOneAnswer];
@@ -12,15 +12,16 @@ function getCorrectAnswer() {
 
 //with Object.
 
-let questionOne = {};
-questionOne.Title = "What is the Capital of India";
-questionOne.Option = ["Kolkata", "Mumbai", "Hyderabad", "New Delhi"];
-questionOne.Answer = 3;
-questionOne.isAnswerCorrect = function (answer) {
-    return answer === questionOneAnswer ? true : false;
+let question = {
+Title = "What is the Capital of India",
+Options = ["Kolkata", "Mumbai", "Hyderabad", "New Delhi"],
+Answer = 3,
+isAnswerCorrect(answer) {
+    return answer === question.Answer;
+},
+getCorrectAnswer() {
+    return question.Options[question.Answer];
 }
-questionOne.getCorrectAnswer = function () {
-    return questionOneOption[questionOneAnswer];
 }
 
 
@@ -32,7 +33,7 @@ function createQuestionFunction(data) {
     question.Option = data.options;
     question.Answer = data.correctAnswerIndex;
     question.isAnswerCorrect = function (yourAnswer) {
-        return yourAnswer === question.Answer ? true : false;
+        return yourAnswer === question.Answer
     }
     question.getCorrectAnswer = function () {
         return question.Option[question.Answer];
@@ -49,7 +50,7 @@ function createQuestionUsingThis(data) {
     question.Option = data.options;
     question.Answer = data.correctAnswerIndex;
     question.isAnswerCorrect = function (yourAnswer) {
-        return yourAnswer === this.Answer ? true : false;
+        return yourAnswer === this.Answer
     }
     question.getCorrectAnswer = function () {
         return this.Option[this.Answer];
@@ -65,9 +66,5 @@ const testData = {
     correctAnswerIndex: 1,
   }
 
-try{
-    createQuestionFunction(data);
-}
-catch(error){
-    alert(error);
-}
+createQuestionFunction(testData);
+createQuestionUsingThis(testData);
