@@ -8,12 +8,20 @@ function createUser(name,id,noOfProjects){
     id : id,
     noOfProjects : noOfProjects,
     getProjects(){
-        return noOfProjects;
+        return user.noOfProjects;
     },
     changeName(newName){
-        let oldName = this.name;
-        this.name = newName;
+        let oldName = user.name;
+        user.name = newName;
         return oldName;
+    },
+    incrementProject(){
+        user.noOfProjects +=1;
+        return user.noOfProjects;
+    },
+    decrementProject(){
+        user.noOfProjects -= 1;
+        return user.noOfProjects;
     }
 }
     return user
@@ -42,6 +50,14 @@ createUsers.prototype = {
         let oldName = this.name;
         this.name = newName;
         return oldName;
+    },
+    incrementProject(){
+        this.noOfProjects +=1;
+        return this.noOfProjects;
+    },
+    decrementProject(){
+        this.noOfProjects -= 1;
+        return this.noOfProjects;
     }
 }
 
@@ -61,9 +77,17 @@ CreateUser.prototype = {
         return noOfProjects;
     },
     changeName(newName){
-        let oldName = this.name;
+        let oldName = this.name ;
         this.name = newName;
         return oldName;
+    },
+    incrementProject(){
+        user.noOfProjects +=1;
+        return user.noOfProjects;
+    },
+    decrementProject(){
+        user.noOfProjects -= 1;
+        return user.noOfProjects;
     }
 }
 
@@ -86,6 +110,14 @@ class User{
         let oldName = this.name;
         this.name = newName;
         return oldName;
+    }
+    incrementProject(){
+        user.noOfProjects +=1;
+        return user.noOfProjects;
+    }
+    decrementProject(){
+        user.noOfProjects -= 1;
+        return user.noOfProjects;
     }
 }
 
