@@ -26,6 +26,43 @@ Methods:
 Getter
 
 - `length`: returns the current length of the stack.
+```js
+class Stack{
+
+    constructor(){
+    }
+    get length(){
+       let l = 0;
+       while(this[l] !== undefined){
+       l+=1;}
+       return l;
+    }   
+    push(val){
+        this[this.length]= val;
+        return this.length
+    }
+    pop(){
+        this.splice(this.length-2,1)
+        return this[this.length-1]
+    }
+    peek(index = this.length-1){
+       return this[index];
+    }
+    reverse(){
+      let arr = Object.values(this)
+        let finalArr = [];
+        for(let i = 0;i<arr.length;i++){
+            finalArr.push(arr[length-i])
+        }
+        return finalArr;
+    }
+    displayStack(){
+        let arr = Object.values(this);
+      return arr.reduce((acc,cv)=>acc.concat(cv+" "),"")
+    
+    }
+}
+```
 
 #### Test
 
