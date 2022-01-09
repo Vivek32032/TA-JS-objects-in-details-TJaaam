@@ -30,35 +30,30 @@ Getter
 class Stack{
 
     constructor(){
+        this.stack = [];
     }
     get length(){
-       let l = 0;
-       while(this[l] !== undefined){
-       l+=1;}
-       return l;
+       return this.stack.length;
     }   
     push(val){
-        this[this.length]= val;
-        return this.length
+        this.stack.push(val);
+        return this.stack;
     }
     pop(){
-        this.splice(this.length-2,1)
-        return this[this.length-1]
+        this.stack.pop()
+        return this.stack;
     }
-    peek(index = this.length-1){
-       return this[index];
+    peek(index = this.stack.length-1){
+       return this.stack[index];
     }
     reverse(){
-      let arr = Object.values(this)
-        let finalArr = [];
-        for(let i = 0;i<arr.length;i++){
-            finalArr.push(arr[length-i])
-        }
-        return finalArr;
+       return this.stack.reverse();
+    }
+    isEmpty(){
+        return !(this.stack.length > 0);
     }
     displayStack(){
-        let arr = Object.values(this);
-      return arr.reduce((acc,cv)=>acc.concat(cv+" "),"")
+      return this.stack.join("");
     
     }
 }
@@ -104,6 +99,36 @@ Getter
 #### Test
 
 ```js
+
+class Queue{
+
+    constructor(){
+        this.queue = [];
+    }
+    get length(){
+       return this.queue.length;
+    }   
+    enqueue(val){
+        this.queue.push(val);
+        return this.queue;
+    }
+    dequeue(){
+        this.queue.shift()
+        return this.queue;
+    }
+    peek(index = 0){
+       return this.queue[index];
+    }
+   
+    isEmpty(){
+        return !(this.queue.length > 0);
+    }
+    displayStack(){
+      return this.queue.join("");
+    
+    }
+}
+
 let atmQueue = new Queue();
 atmQueue.enqueue('Aman');
 atmQueue.enqueue('John');
