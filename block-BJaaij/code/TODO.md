@@ -21,8 +21,8 @@ class Book{
         this.Title=title;
         this.Category=category;
         this.Author= author;
-        this.isRead = isRead;
-        this.finishedDate = finishedDate;
+        this.isRead = false;
+        this.finishedDate = null;
     }
     markBookAsRead(){
         this.isRead = true;
@@ -49,24 +49,30 @@ After creating the Book and BookList class create 5 book object and add it to li
 
 ```js
 class BookList{
-    constructor([...book],index){
-        this.bookList= book;
-        this.currentBookIndex = index;
+    constructor(){
+        this.books= [];
+        this.currentBookIndex = 0;
     }
-    add([...book]){
-        this.book = book;
+    add(books = []){
+        this.book = this.books.concat(books);
+        return this.books;
     }
     getCurrentBook(){
-        return bookList[currentBookIndex]
+        
+        return this.books[this.currentBookIndex]
     }
     getNextBook(){
-        return bookList[currentBookIndex+1];
+        this.currentIndexBook = this.currentIndexBook + 1;
+        return this.books[this.currentBookIndex];
     }
     getPrevBook(){
-        return booklist[currentBookIndex-1]
+        this.currentIndexBook = this.currentIndexBook-1;
+        return this.books[this.currentBookIndex];
     }
     changeCurrentBook(index){
         this.currentBookIndex = index;
+        return this.currentBookIndex;
+
     }
 }
 ```
