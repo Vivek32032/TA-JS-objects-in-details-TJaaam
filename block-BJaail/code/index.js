@@ -61,7 +61,7 @@ function displayBooks() {
         let isRead = document.createElement("td")
         isRead.addEventListener("click",function(event){
             ele.markRead();
-            if(ele.isRead===true){
+            if(ele.isRead){
                event.target.innerText = "Read";
             }
             else{
