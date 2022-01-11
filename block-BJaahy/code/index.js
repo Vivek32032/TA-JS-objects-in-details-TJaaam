@@ -92,4 +92,4 @@ firstUser.fullName = "Pramod Kumar";
 // - Check the `fullName` using getter
 console.log(firstUser.fullName)
 // - Check the `nameContains` method
-console.log(firstUser.nameContains("a"))
+console.log(firstUser.nameContains("a"));
